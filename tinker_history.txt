@@ -1,0 +1,1000 @@
+﻿   53  vi nova-scheduler.json.j2 
+   54  vi nova.conf.j2 
+   55  cd 
+   56  clear
+   57  curl -XGET http://172.30.249.157:9100/metrics
+   58  telnet 172.30.249.157 9100
+   59  telnet 172.30.249.157 80
+   60  telnet 172.30.249.157 443
+   61  ping 172.30.249.157
+   62  telnet 172.30.249.157 8080
+   63  clear
+   64  dmesg -T | tail
+   65  clear
+   66  cd /usr/share/kolla-ansible/
+   67  ls
+   68  cd ansible/
+   69  git status
+   70  git diff roles/haproxy/tasks/config.yml
+   71  git diff roles/nova/templates/nova.conf.j2
+   72  git add .
+   73  git ci -m "haproxy sudo 추가, island 이미지 변경"
+   74  git push
+   75  clear
+   76  rpm --query centos-release
+   77  vi /etc/yum.conf 
+   78  clear
+   79  ifconfig 
+   80  vi /usr/share/kolla-ansible/ansible/roles/keystone/templates/keystone.conf.j2 
+   81  vi /usr/share/kolla-ansible/ansible/roles/keystone/templates/keystone.ebaykorea.conf.j2 
+   82  cd /usr/share/kolla-ansible/
+   83  git status
+   84  git add .
+   85  git ci -m "LDAP page size 추가"
+   86  git push
+   87  clear
+   88  vi /etc/sysconfig/network-scripts/ifcfg-ens2f1
+   89  vi /etc/sysconfig/network-scripts/ifcfg-ens2f1 
+   90  openstack role add --project juyolee --user jihychoi _member_ --user-domain ebaykorea
+   91  clear
+   92  ls
+   93  clear
+   94  ls
+   95  docker ps -a
+   96  vi /etc/sysconfig/network-scripts/ifcfg-ens2f1 
+   97  ls
+   98  ansible multinode -m command -a 'systemctl enable docker' -o
+   99  vi multinode 
+  100  ansible multinode -m control -a 'systemctl enable docker' -o
+  101  ansible multinode -i multinode -a 'systemctl enable docker' -o
+  102  ansible -m multinode -a 'systemctl enable docker' -o
+  103  ansible -i multinode -a 'systemctl enable docker' -o
+  104  ansible all -i multinode -a 'systemctl enable docker' -o
+  105  ls
+  106  ansible --help 
+  107  ansible all -s -m multinode -a 'systemctl enable docker' -o 
+  108  ansible all -s -i multinode -a 'systemctl enable docker' -o 
+  109  clear
+  110  cat /etc/sysctl.conf 
+  111  ls
+  112  vi multinode 
+  113  clear
+  114  sysctl -a
+  115  clear
+  116  vi /etc/sysctl.conf 
+  117  ansible storage -s -i multinode -a 'sysctl -w net.netfilter.nf_conntrack_max=524288' -o
+  118  ansible storage -s -i multinode -a 'sysctl -w net.netfilter.nf_conntrack_tcp_timeout_established=86400' -o
+  119  ansible storage -s -i multinode -a 'sysctl -p' -o
+  120  clear
+  121  vi /etc/sysctl.conf 
+  122  clear
+  123  vi /etc/sysctl.conf 
+  124  docker ps -a
+  125  docker exec -it -u 0 ceph_osd_20  ash
+  126  docker exec -it -u 0 ceph_osd_20 bash
+  127  vi /etc/sysctl.conf 
+  128  rm -f /etc/.sysctl.conf.swp 
+  129  clear
+  130  vi ~/.bashrc 
+  131  export OS_AUTH_URL=http://172.30.249.25:35357/v3
+  132  export OS_IDENTITY_API_VERSION=3
+  133  export OS_PROJECT_NAME=jihychoi
+  134  export OS_USERNAME=jihychoi
+  135  export OS_USER_DOMAIN_NAME=ebaykorea
+  136  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  137  export OS_PASSWORD=dKtmskf%452toolong
+  138  export OS_AUTH_TYPE=password
+  139  export no_proxy=127.0.0.1,172.30.249.25
+  140  clear
+  141  openstack server list
+  142  clear
+  143  openstack server list
+  144  openstack server migrate 5aeee0bd-040e-48d3-b2ef-6bc72ed4e71f --live tinkercmp20gm
+  145  clear
+  146  openstack server list
+  147  clear
+  148  openstack server add fixed ip --fixed-ip-address 172.30.251.35 5aeee0bd-040e-48d3-b2ef-6bc72ed4e71f c4cea9af-58ed-4164-9697-1fd0b3dd0c32
+  149  sysctl -p
+  150  vi /etc/security/limits.conf
+  151  ulimit -n
+  152  vi /etc/sysctl.conf
+  153  cat /etc/*-release
+  154  rpm -e kav4fs
+  155  rpm -e klnagent
+  156  rpm -e kesl
+  157  exit
+  158  ifconfig 
+  159  clear
+  160  ifconfig ens1f0
+  161  clear
+  162  ls
+  163  clear
+  164  openstack server list
+  165  vi ~/.bashrc 
+  166  export OS_AUTH_URL=http://172.30.249.25:35357/v3
+  167  export OS_IDENTITY_API_VERSION=3
+  168  export OS_PROJECT_NAME=jihychoi
+  169  export OS_USERNAME=jihychoi
+  170  export OS_USER_DOMAIN_NAME=ebaykorea
+  171  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  172  export OS_PASSWORD=dKtmskf%452toolong
+  173  export OS_AUTH_TYPE=password
+  174  export no_proxy=127.0.0.1,172.30.249.25
+  175  clear
+  176  openstack server list
+  177  openstack server migrate 64bb5c63-ba95-4a21-8cc9-a806f4889b3b 
+  178  docker ps -a
+  179  docker stop snort
+  180  docker rm snort
+  181  clear
+  182  glance image list
+  183  clear
+  184  vi ~/.bashrc 
+  185  export OS_AUTH_URL=http://172.30.249.25:35357/v3
+  186  export OS_IDENTITY_API_VERSION=3
+  187  export OS_PROJECT_NAME=jihychoi
+  188  export OS_USERNAME=jihychoi
+  189  export OS_USER_DOMAIN_NAME=ebaykorea
+  190  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  191  export OS_PASSWORD=dKtmskf%452toolong
+  192  export OS_AUTH_TYPE=password
+  193  export no_proxy=127.0.0.1,172.30.249.25
+  194  clear
+  195  openstack image list
+  196  ls
+  197  ls -al *.iso
+  198  cd /home/jihychoi/
+  199  ls
+  200  cd disk-image/
+  201  ls
+  202  cd ../
+  203  ls
+  204  pwd
+  205  clear
+  206  w
+  207  docker ps -a | grep ceph
+  208  docker exec -it -u 0 ceph_osd_20 bash
+  209  docker ps -a
+  210  docker exec -it -u 0 ceph_osd_1 bash
+  211  ls
+  212  docker exec -it -u 0 ceph_osd_1 bash
+  213  docker ps -a
+  214  docker exec -it -u 0 ceph_osd_1 bash
+  215  clear
+  216  docker ps -a
+  217  openstack volume list
+  218  vi ~/.bashrc 
+  219  export OS_PROJECT_NAME=jihychoi
+  220  export OS_USERNAME=jihychoi
+  221  export OS_USER_DOMAIN_NAME=ebaykorea
+  222  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  223  export OS_PASSWORD=dKtmskf%452toolong
+  224  clear
+  225  openstack volume list
+  226  openstack volume delete ed5d7a69-cc42-42fd-a251-1e98358c47c6 --force
+  227  openstack volume delete fc966bd9-a4e5-4a41-8dc0-71ccae9c38c8 --force
+  228  clear
+  229  openstack volume list
+  230  clear
+  231  docker ps -a
+  232  curl -XGET 127.0.0.1:8080/metrics
+  233  curl -XGET 127.0.0.1:8080
+  234  clear
+  235  docker ps -a
+  236  curl -XGET 127.0.0.1:9100/metrics
+  237  clear
+  238  curl -XGET 127.0.0.1:9100/metrics
+  239  clear
+  240  cinder volume list
+  241  cinder volume --volume-service-name volume-8beb3f81-7a07-47cd-8430-cd0517c0aed2 
+  242  cinder --help
+  243  clear
+  244  cinder list
+  245  vi ~/.bashrc 
+  246  export OS_PROJECT_NAME=jihychoi
+  247  export OS_USERNAME=jihychoi
+  248  export OS_USER_DOMAIN_NAME=ebaykorea
+  249  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  250  export OS_PASSWORD=dKtmskf%452toolong
+  251  cinder list
+  252  cd /home/jihychoi/
+  253  ls
+  254  cd packer-openstack/
+  255  ls
+  256  cd centos/
+  257  ls
+  258  cd ansible-playbook-centos/
+  259  git pull
+  260  clear
+  261  ls
+  262  cd ../
+  263  ls
+  264  packer build centos.json 
+  265  clear
+  266  docker ps -a
+  267  vi /etc/kolla/
+  268  clear
+  269  cinder-manage host list
+  270  cinder migrate --help 
+  271  clear
+  272  cinder migrate 1b7589fd-8788-42bc-8dd2-376b9fa75c98 tinkerstrg04gm
+  273  openstack volume --help
+  274  openstack volume service list
+  275  cinder migrate 1b7589fd-8788-42bc-8dd2-376b9fa75c98 tinkerstrg04gm@rbd-1
+  276  openstack volume service --hlep
+  277  openstack volume service --help
+  278  openstack volume service set --help
+  279  openstack volume service list
+  280  openstack volume service set --disable tinkerstrg01gm@rbd-1 cinder-volume
+  281  openstack volume service set --disable tinkerstrg01gm@rbd-1 cinder-backup
+  282  openstack volume service set --disable tinkerstrg01gm cinder-backup
+  283  openstack volume service list
+  284  openstack volume service set --help
+  285  openstack volume show 1b7589fd-8788-42bc-8dd2-376b9fa75c98
+  286  openstack volume service set --enable tinkerstrg01gm cinder-backup
+  287  openstack volume service set --enable tinkerstrg01gm@rbd-1 cinder-volume
+  288  cinder migrate 1b7589fd-8788-42bc-8dd2-376b9fa75c98 tinkerstrg04gm@rbd-1
+  289  openstack volume show 1b7589fd-8788-42bc-8dd2-376b9fa75c98
+  290  clear
+  291  openstack volume show 1b7589fd-8788-42bc-8dd2-376b9fa75c98
+  292  clear
+  293  openstack volume set --retype-policy on-demand 1b7589fd-8788-42bc-8dd2-376b9fa75c98
+  294  openstack volume set --retype-policy on-demand --type myvol 1b7589fd-8788-42bc-8dd2-376b9fa75c98
+  295  clear
+  296  openstack volume list
+  297  clear
+  298  openstack volume service list
+  299  openstack volume service --help
+  300  openstack volume service set --help
+  301  openstack volume service set --disable tinkerstrg01gm cinder-backup
+  302  openstack volume service set --disable tinkerstrg01gm@rbd-1 cinder-volume
+  303  clear
+  304  openstack volume service list
+  305  clear
+  306  openstack volume service list
+  307  openstack volume service --help 
+  308  openstack volume service set --help 
+  309  openstack volume service set --enable tinkerstrg01gm@rbd-1 cinder-volume
+  310  openstack volume service set --enable tinkerstrg01gm cinder-backup
+  311  clear
+  312  openstack volume service list
+  313  clear
+  314  docker ps -a
+  315  docker exec -it -u 0 cinder_volume bash
+  316  docker ps -a | grep ceph
+  317  docker exec -it -u 0 ceph_osd_1 bash
+  318  glance image-list
+  319  docker exec -it -u 0 ceph_osd_1 bash
+  320  clear
+  321  cinder list
+  322  docker ps -a
+  323  docker exec -it -u 0 ceph_osd_1 bash
+  324  clear
+  325  docker ps -a
+  326  docker exec -it -u 0 ceph_osd_1 bash
+  327  ls
+  328  ls -al *.iso
+  329  cd /home/jihychoi/
+  330  ls
+  331  ls -al *.iso
+  332  ls -al *.ISO
+  333  find / -name "*.iso"
+  334  ls
+  335  vi ~/.bashrc 
+  336  export OS_PROJECT_NAME=taeheelee
+  337  export OS_USERNAME=jihychoi
+  338  export OS_USER_DOMAIN_NAME=ebaykorea
+  339  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  340  export OS_PASSWORD=dKtmskf%452toolong
+  341  glance image-create --name="windows2016-iso" --disk-format iso --container-format bare --file SW_DVD9_Win_Svr_STD_Core_and_DataCtr_Core_2016_64Bit_Korean_-2_MLF_X21-22833.ISO 
+  342  cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  343  vi multinode 
+  344  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  345  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor'
+  346  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor'
+  347  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor'
+  348  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor'
+  349  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor'
+  350  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor'
+  351  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor'
+  352  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor'
+  353  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu8/cpufreq/scaling_governor'
+  354  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu9/cpufreq/scaling_governor'
+  355  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu10/cpufreq/scaling_governor'
+  356  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu11/cpufreq/scaling_governor'
+  357  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu12/cpufreq/scaling_governor'
+  358  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu13/cpufreq/scaling_governor'
+  359  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu14/cpufreq/scaling_governor'
+  360  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu15/cpufreq/scaling_governor'
+  361  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu16/cpufreq/scaling_governor'
+  362  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu17/cpufreq/scaling_governor'
+  363  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu18/cpufreq/scaling_governor'
+  364  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu19/cpufreq/scaling_governor'
+  365  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu20/cpufreq/scaling_governor'
+  366  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu21/cpufreq/scaling_governor'
+  367  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu22/cpufreq/scaling_governor'
+  368  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu23/cpufreq/scaling_governor'
+  369  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu24/cpufreq/scaling_governor'
+  370  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu25/cpufreq/scaling_governor'
+  371  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu26/cpufreq/scaling_governor'
+  372  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu27/cpufreq/scaling_governor'
+  373  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu28/cpufreq/scaling_governor'
+  374  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu29/cpufreq/scaling_governor'
+  375  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu30/cpufreq/scaling_governor'
+  376  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu31/cpufreq/scaling_governor'
+  377  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu32/cpufreq/scaling_governor'
+  378  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu33/cpufreq/scaling_governor'
+  379  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu34/cpufreq/scaling_governor'
+  380  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu35/cpufreq/scaling_governor'
+  381  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu36/cpufreq/scaling_governor'
+  382  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu37/cpufreq/scaling_governor'
+  383  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu38/cpufreq/scaling_governor'
+  384  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu39/cpufreq/scaling_governor'
+  385  ansible storage -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu40/cpufreq/scaling_governor'
+  386  ansible compute -s -i multinode -a 'echo performance > /sys/devices/system/cpu/cpu40/cpufreq/scaling_governor'
+  387  vi ~/.bashrc 
+  388  export OS_PROJECT_NAME=jihychoi
+  389  export OS_USERNAME=jihychoi
+  390  export OS_USER_DOMAIN_NAME=ebaykorea
+  391  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  392  export OS_PASSWORD=dKtmskf%452toolong
+  393  clear
+  394  openstack cinder --help
+  395  openstack volume --help
+  396  openstack volume service list
+  397  openstack volume service set --help
+  398  openstack volume service set --disable tinkerstrg01gm@rbd-1 cinder-volume
+  399  openstack volume service set --disable tinkerstrg01gm cinder-backup
+  400  openstack volume service list
+  401  openstack volume service delete --help
+  402  openstack volume service set --help
+  403  openstack volume service remove --help
+  404  openstack volume service list --hlep
+  405  openstack volume service set --help
+  406  openstack volume service list
+  407  openstack volume service --disable oskdv09gm cinder-scheduler
+  408  openstack volume host set --help
+  409  openstack volume host list
+  410  openstack volume --help
+  411  openstack volume service list --help
+  412  openstack volume service set --help
+  413  openstack volume service list
+  414  openstack volume service set --disable oskdv09gm cinder-scheduler 
+  415  openstack volume service set --disable oskdv07gm cinder-scheduler 
+  416  openstack volume service set --disable oskdv08gm cinder-scheduler 
+  417  openstack volume service set --disable oskdv04gm@rbd-1 cinder-volume
+  418  openstack volume service set --disable oskdv03gm@rbd-1 cinder-volume
+  419  openstack volume service set --disable oskdv02gm@rbd-1 cinder-volume
+  420  openstack volume service set --disable oskdv03gm cinder-backup
+  421  openstack volume service set --disable oskdv04gm cinder-backup
+  422  openstack volume service set --disable oskdv02gm cinder-backup
+  423  clear
+  424  openstack volume service list
+  425  clear
+  426  openstack volume --help
+  427  openstack volume host set --help
+  428  openstack volume host set --disable oskdv09gm
+  429  openstack volume host set --disable oskdv02gm
+  430  openstack router list
+  431  openstack neutron --help
+  432  openstack network --help
+  433  clear
+  434  neutron l3-agent-list-hosting-router dev-router
+  435  ping 172.30.249.130
+  436  clear
+  437  openstack network agent list
+  438  clear
+  439  ping 172.30.249.158
+  440  ping 172.30.249.159
+  441  ping 172.30.249.154
+  442  ping 172.30.249.153
+  443  ping 172.30.249.152
+  444  ping 172.30.249.151
+  445  ping 172.30.249.150
+  446  clear
+  447  ping 172.30.249.149
+  448  ping 172.30.249.102
+  449  ping 172.30.249.180
+  450  ping 172.30.249.187
+  451  clear
+  452  neutron agent-list
+  453  clear
+  454  neutron agent-list
+  455  neutron net-list-on-dhcp-agent 92575dd5-68e4-4e9d-a3db-9ae81adbb6f0
+  456  neutron net-list-on-dhcp-agent eed97622-e870-493c-9e8c-34bbc0172337
+  457  neutron net-list-on-dhcp-agent 6894926b-1812-43a2-a135-429fa3f68bc5
+  458  clear
+  459  openstack network --help
+  460  neutron agent-list
+  461  clear
+  462  openstack network port --help
+  463  neutron port-update --help
+  464  clear
+  465  neutron port-list
+  466  neutron port-update --fixed-ip subnet_id=9c811d8b-cddc-405f-b131-e8202510adf4,ip_address=172.30.249.180 298e5548-3f6e-44b7-a80f-6dffd03724ac
+  467  neutron port-update --fixed-ip subnet_id=9c811d8b-cddc-405f-b131-e8202510adf4,ip_address=172.30.249.187 298e5548-3f6e-44b7-a80f-6dffd03724ac
+  468  clear
+  469  docker sp -a
+  470  clear
+  471  docker ps -a
+  472  docker exec -it -u 0 ceph_osd_1 bash
+  473  clear
+  474  docker ps -a
+  475  docker exec -it -u 0 ceph_osd_1 bash
+  476  clear
+  477  docker ps -a
+  478  clear
+  479  ls
+  480  cd /home/jihychoi/
+  481  ls
+  482  cd packer-openstack/
+  483  ls
+  484  cd centos/
+  485  ls
+  486  vi ~/.bashrc 
+  487  export OS_PROJECT_NAME=jihychoi
+  488  export OS_USERNAME=jihychoi
+  489  export OS_USER_DOMAIN_NAME=ebaykorea
+  490  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  491  export OS_PASSWORD=dKtmskf%452toolong
+  492  ls
+  493  packer build centos.json 
+  494  cd ansible-playbook-centos/
+  495  ls
+  496  git pull
+  497  cd ../
+  498  ls
+  499  cd ../
+  500  ls
+  501  cd ubuntu16.04/
+  502  ls
+  503  cd ansible-playbook-ubuntu/
+  504  git pull
+  505  cd ../
+  506  ls
+  507  cd ../ubuntu18.04/
+  508  ls
+  509  cd ansible-playbook-ubuntu/
+  510  git pull
+  511  cd ../
+  512  ls
+  513  cd ../
+  514  ls
+  515  cd centos/
+  516  ls
+  517  packer build centos.json 
+  518  env 
+  519  export OS_PASSWORD=dKtmskf%452toolong
+  520  packer build centos.json 
+  521  vi ~/.bashrc 
+  522  export OS_PROJECT_NAME=admin
+  523  export OS_USERNAME=admin
+  524  export OS_USER_DOMAIN_NAME=default
+  525  export OS_PROJECT_DOMAIN_NAME=default
+  526  export OS_PASSWORD=C6jGldlSdZ7K0oqOf1JieVen7KdyQpWdJke6fW2A
+  527  ls
+  528  packer build centos.json 
+  529  cd /home/jihychoi/
+  530  ls
+  531  cd packer-openstack/
+  532  ls
+  533  cd ubuntu16.04/
+  534  ls
+  535  packer build ubuntu16.json 
+  536  GldlSdZ7K0oqOf1JieVen7KdyQpWdJke6fW2A
+  537  ls
+  538  packer build centos.json 
+  539  cd /home/jihychoi/packer-openstack/
+  540  ls
+  541  cd ubuntu18.04/
+  542  packer build ubuntu18.json 
+  543  vi /etc/resolv.conf
+  544  clear
+  545  docker ps -a
+  546  openstack image delete --help
+  547  openstack image delete -h
+  548  clear
+  549  glance image-list
+  550  clear
+  551  glance image-delete 719deb7f-438f-4295-8e9f-bf6982c7782a --force
+  552  glance image-delete -h
+  553  clear
+  554  openstack image delete --help
+  555  openstack image delete 719deb7f-438f-4295-8e9f-bf6982c7782a --force
+  556  openstack image delete --force 719deb7f-438f-4295-8e9f-bf6982c7782a
+  557  openstack image delete -h
+  558  openstack image delete 719deb7f-438f-4295-8e9f-bf6982c7782a
+  559  clear
+  560  ls
+  561  clear
+  562  docker ps -a
+  563  vi /etc/kolla/ceph-osd/ceph.conf 
+  564  vi /etc/kolla/ceph-osd/ceph.client.admin.keyring 
+  565  vi /etc/kolla/cinder-volume/cinder.conf 
+  566  vi /etc/kolla/cinder-volume/ceph.conf 
+  567  clear
+  568  cd /home/jihychoi/packer-openstack/
+  569  ls
+  570  cd centos/
+  571  ls
+  572  vi setup-centos.sh 
+  573  vi centos.json 
+  574  clear
+  575  vi /etc/fstab
+  576  lsblk id
+  577  lsblk
+  578  clear
+  579  systemctl status docker
+  580  vi /etc/systemd/system/docker.service.d/kolla.conf 
+  581  clear
+  582  netstat -tan
+  583  clear
+  584  nslookup hawkular-metrics.e1.ebaykorea.com/hawkular/metrics
+  585  nslookup hawkular-metrics.e1.ebaykorea.com
+  586  nslookup hawkular-metrics.e2.ebaykorea.com
+  587  nslookup hawkular-metrics.e3.ebaykorea.com
+  588  nslookup hawkular-metrics.e4.ebaykorea.com
+  589  clear
+  590  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  591  designate record-list 5b59b5fc-179f-4714-b9fe-485b564567b7
+  592  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  593  vi ~/.bashrc 
+  594  export OS_PROJECT_NAME=dp-redis
+  595  export OS_USERNAME=jihychoi
+  596  export OS_USER_DOMAIN_NAME=ebaykorea
+  597  export OS_PROJECT_DOMAIN_NAME=ebaykorea
+  598  export OS_PASSWORD=dKtmskf%452toolong
+  599  clear
+  600  openstack quota set --network 30 
+  601  openstack project list
+  602  openstack quota set --network 30 662af4843d184de59dc8a7e69709ce5f
+  603  openstack quota set --networks 30 662af4843d184de59dc8a7e69709ce5f
+  604  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  605  clear
+  606  designate domain-list
+  607  designate quota-get 662af4843d184de59dc8a7e69709ce5f
+  608  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  609  clear
+  610  env
+  611  clear
+  612  openstack dns quota set --zones 30
+  613  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  614  clear
+  615  designate domain-list
+  616  openstack dns quota 
+  617  openstack dns quota set --recordset_records 30
+  618  openstack dns quota set --recordset-records 30
+  619  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  620  openstack dns quota set --zone_records 1000
+  621  openstack dns quota set --zone-records 1000
+  622  openstack dns quota set --zone-recordsets 1000
+  623  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  624  designate quota-get 662af4843d184de59dc8a7e69709ce5f
+  625  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  626  clear
+  627  openstack role add --project dp-redis --user jihychoi admin --user-domain ebaykorea
+  628  designate domain-list
+  629  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  630  openstack dns quota list
+  631  openstack dns quota set --recordset-records 30
+  632  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  633  openstack zone list
+  634  openstack recordset list
+  635  openstack recordset list 5b59b5fc-179f-4714-b9fe-485b564567b7
+  636  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-5.0.3-1-dp-redis --type A --data 172.30.5.156
+  637  openstack dns quota set --zone-records 1000
+  638  openstack dns quota set --zone-recordssets 1000
+  639  openstack dns quota set --zone-recordsets 1000
+  640  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-5.0.3-1-dp-redis --type A --data 172.30.5.156
+  641  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-5.0.3-2-dp-redis --type A --data 172.30.5.135
+  642  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-5.0.3-3-dp-redis --type A --data 172.30.5.152
+  643  designate record-create 5b59b5fc-179f-4714-b9fe-485b564567b7 --name redis-cluster-3.2.12-1-dp-redis --type A --data 172.30.5.33
+  644  cd /usr/share/kolla-ansible/ansible/
+  645  ls
+  646  cd roles/nova
+  647  ls
+  648  vi templates/nova-compute.json.j2 
+  649  vi templates/nova.conf.j2 
+  650  clear
+  651  cd 
+  652  ls
+  653  kolla-ansible -i multinode deploy --tags=nova
+  654  vi templates/nova.conf.j2 
+  655  vi /usr/share/kolla-ansible/ansible/roles/nova/templates/nova.conf.j2 
+  656  clear
+  657  ls
+  658  kolla-ansible -i multinode deploy --tags=nova
+  659  cd /usr/share/kolla-ansible/ansible/
+  660  ls
+  661  cd roles/nova
+  662  ls
+  663  cd templates/
+  664  ls
+  665  vi nova.conf.j2 
+  666  vi /usr/share/kolla-ansible/ansible/roles/nova/tasks/register.yml
+  667  clear
+  668  cd 
+  669  kolla-ansible -i multinode deploy --tags=nova
+  670  vi /usr/share/kolla-ansible/ansible/roles/nova/tasks/register.yml
+  671  kolla-ansible -i multinode deploy --tags=nova
+  672  vi /usr/share/kolla-ansible/ansible/roles/nova/tasks/config.yml
+  673  clear
+  674  ls
+  675  kolla-ansible -i multinode deploy --tags=nova
+  676  vi /usr/share/kolla-ansible/ansible/roles/nova/tasks/config.yml
+  677  vi /usr/share/kolla-ansible/ansible/roles/nova/tasks/ceph.yml
+  678  clear
+  679  kolla-ansible -i multinode deploy --tags=nova
+  680  vi /usr/share/kolla-ansible/ansible/roles/nova/tasks/ceph.yml
+  681  vi /usr/share/kolla-ansible/ansible/roles/nova/tasks/bootstrap.yml
+  682  clear
+  683  kolla-ansible -i multinode deploy --tags=nova
+  684  vi /usr/share/kolla-ansible/ansible/roles/nova/tasks/ceph.yml
+  685  kolla-ansible -i multinode deploy --tags=nova
+  686  vi /usr/share/kolla-ansible/ansible/roles/nova/handlers/main.yml
+  687  kolla-ansible -i multinode deploy --tags=nova
+  688  cd /usr/share/kolla-ansible/
+  689  git status
+  690  git diff ansible/roles/nova/handlers/main.yml
+  691  clear
+  692  git st
+  693  git diff ansible/roles/nova/tasks/bootstrap.yml
+  694  git diff ansible/roles/nova/tasks/ceph.yml
+  695  git diff ansible/roles/nova/tasks/config.yml
+  696  git diff ansible/roles/nova/tasks/register.yml
+  697  git diff ansible/roles/nova/templates/nova.conf.j2
+  698  git add .
+  699  git ci -m "용량 큰 block device mapping 대비"
+  700  git push
+  701  vi /etc/resolv.conf
+  702  clear
+  703  docker images
+  704  clear
+  705  ls
+  706  vi init-runonce 
+  707  vi vendor-data 
+  708  cd /home/jihychoi/
+  709  ls
+  710  vi glance-auth.sh 
+  711  cd custom-images/
+  712  ls
+  713  cd ../metaconfig/
+  714  ls
+  715  clear
+  716  cd 
+  717  ls
+  718  openstack router list
+  719  neutron l3-agent-list-hosting-router dev-router
+  720  clear
+  721  cat /etc/kolla/globals.yml | egrep -v '(^#|^$|:$|\-\-\-)'
+  722  clear
+  723  kolla-ansible -i multinode deploy
+  724  clear
+  725  cat /etc/kolla/globals.yml | egrep -v '(^#|^$|:$|\-\-\-)'
+  726  vi multinode 
+  727  kolla-ansible -i multinode deploy 
+  728  vi multinode 
+  729  clear
+  730  cd /usr/share/kolla-ansible/ansible/
+  731  ls
+  732  git status
+  733  git logs
+  734  git log
+  735  clear
+  736  ls
+  737  cd 
+  738  ls
+  739  cd /usr/share/kolla-ansible/
+  740  ls
+  741  cd ansible/
+  742  ls
+  743  cd roles/
+  744  cd nova
+  745  ls
+  746  cd tasks/
+  747  ls
+  748  vi deploy.yml 
+  749  vi config
+  750  vi config.yml 
+  751  vi /etc/kolla/ceph-mon/ceph.conf 
+  752  ls
+  753  pwd
+  754  clear
+  755  cd /home/jihychoi/
+  756  ls
+  757  cd packer-openstack/
+  758  ls
+  759  cd centos/
+  760  ls
+  761  vi centos.json 
+  762  packer build centos.json 
+  763  clear
+  764  docker ps -a
+  765  kolla-ansible --version
+  766  pip list | grep kolla
+  767  kolla-ansible pull -i /etc/kolla/all-in-one
+  768  exit
+  769  systemctl status docker
+  770  cd /etc/systemd/system/docker.service.d/kolla.conf 
+  771  vi /etc/systemd/system/docker.service.d/kolla.conf 
+  772  clear
+  773  docker ps -a
+  774  pip list | grep kolla-ansible
+  775  pip --version
+  776  vi /etc/kolla/globals.yml 
+  777  exit
+  778  docker ps
+  779  clear
+  780  docker ps
+  781  exit
+  782  cd /etc/kolla/
+  783  ll
+  784  exit
+  785  ssh 172.30.5.171
+  786  ssh ubuntu@172.30.5.171
+  787  ssh tinker@172.30.5.107
+  788  ssh tkbell@172.30.5.107
+  789  ssh ubuntu@172.30.5.171
+  790  vi /etc/sudores
+  791  vi /etc/sudoers
+  792  cd /etc/kolla/
+  793  ll
+  794  vi globals.yml 
+  795  grep "^[^#]" /etc/kolla/globals.yml
+  796  ll
+  797  cd kolla-toolbox/
+  798  ll
+  799  cat config.json 
+  800  cd ..
+  801  ll
+  802  cd config
+  803  ll
+  804  cd ..
+  805  ll
+  806  cat admin-openrc.sh 
+  807  docker ps
+  808  ifconfig
+  809  cat /etc/*-release
+  810  docker --version
+  811  ansible --version
+  812  history |grep pip]
+  813  history |grep pip
+  814  pip list |grep kolla
+  815  ll
+  816  cd ..
+  817  ll
+  818  cd /
+  819  ll
+  820  cd /etc/
+  821  ll
+  822  cd /usr
+  823  ll
+  824  cd share/
+  825  ll
+  826  cd kolla-ansible/
+  827  ll
+  828  cd ansible/
+  829  ll
+  830  cat kolla-host.yml 
+  831  cd ..
+  832  ll
+  833  cd etc_examples/
+  834  ll
+  835  cd kolla/
+  836  ll
+  837  pwd
+  838  cd ..
+  839  ll
+  840  cd ..
+  841  ll
+  842  cd /etc/sysconfig/
+  843  ll
+  844  cd docker 
+  845  ll
+  846  cd docker 
+  847  vi docker 
+  848  cd /etc/default/
+  849  ll
+  850  history |grep keygen
+  851  history |more
+  852  cd /etc/systemd/
+  853  cd system
+  854  ll
+  855  cd docker.service.d/
+  856  ll
+  857  cat kolla.conf 
+  858  pwd
+  859  systemctl status ntpd
+  860  cat /etc/crontab
+  861  cd /
+  862  clear
+  863  ssh root@tinkercmp01gm
+  864  ping tinkercmp01gm
+  865  ping tinkerstrg06gm
+  866  ssh root@172.30.249.189
+  867  ssh 172.30.249.189
+  868  exit
+  869  cd /usr/share/kolla-ansible/an
+  870  cd /usr/share/kolla-ansible/ansible/
+  871  ll
+  872  cd roles/
+  873  ll
+  874  cd horizon/
+  875  ll
+  876  cd defaults/
+  877  ll
+  878  cat main.yml
+  879  cat main.yml |more
+  880  ll
+  881  cd .
+  882  cd ..
+  883  ll
+  884  cd templates/
+  885  ll
+  886  vi horizon.conf.j2 
+  887  ll
+  888  cd ../..
+  889  ll
+  890  cd keystone/
+  891  ll
+  892  cd templates/
+  893  ll
+  894  vi keystone.ebaykorea.conf.j2
+  895  clear
+  896  pwd
+  897  vi keystone.ebaykorea.conf.j2
+  898  pwd
+  899  ll
+  900  cd ..
+  901  ll
+  902  cd ..
+  903  ll
+  904  pwd
+  905  ls
+  906  cd horizon/
+  907  ll
+  908  cd templates/
+  909  ll
+  910  vi local_settings.j2 
+  911  cd ..
+  912  ll
+  913  cd ..
+  914  ll
+  915  cd nova
+  916  ll
+  917  cd templates/
+  918  ll
+  919  vi nova.conf.j2 
+  920  vi nova-compute.json.j2 
+  921  df -h
+  922  cat /etc/fstab
+  923  cd /
+  924  ll
+  925  find / -name multinode
+  926  cd /root
+  927  ll
+  928  vi multinode
+  929  ll
+  930  pwd
+  931  cd kolla-ansible/
+  932  cd ansible/
+  933  ll
+  934  cd inventory/
+  935  ll
+  936  vi multinode 
+  937  cd /usr/share/kolla-ansible/ansible/inventory/
+  938  ll
+  939  vimultinode
+  940  vi multinode 
+  941  cd /home/cpmadm/multinode 
+  942  vi /home/cpmadm/multinode 
+  943  cat /etc/sysctl.conf
+  944  clear
+  945  cat /etc/sysctl.conf
+  946  cat /etc/passwd
+  947  cat ~/.bashrc
+  948  cd /home
+  949  ll
+  950  cd jihychoi/
+  951  ls -al
+  952  cat .bashrc
+  953  ll
+  954  cat win2012.sh 
+  955  cat ~/
+  956  cd /
+  957  cd ~/
+  958  pwd
+  959  ll
+  960  ls -al
+  961  ls -al |more
+  962  pwd
+  963  cd kolla
+  964  ll
+  965  cat deliverables.yaml 
+  966  cat /etc/security/limits.conf 
+  967  cat /etc/security/limits.conf |more
+  968  cat /etc/hosts
+  969  cd /
+  970  find / -name hosts.ini
+  971  systemctl status ntpd
+  972  systemctl status ntp
+  973  systemctl start ntpd
+  974  systemctl status ntpd
+  975  systemctl stop ntpd
+  976  systemctl start ntpd
+  977  ls -al
+  978  cd .ssh
+  979  ls -al
+  980  ssh root@172.30.249.162
+  981  exit
+  982  clear
+  983  cd /usr/share/kolla-ansible/ansible/
+  984  ls
+  985  cd roles/
+  986  ls
+  987  cd horizon/
+  988  ls
+  989  cd tasks/
+  990  ls
+  991  vi pull.yml 
+  992  vi config.yml 
+  993  cd ../
+  994  ls
+  995  cd defatul
+  996  cd defaults/
+  997  ls
+  998  vi main.yml 
+  999  clear
+ 1000  docker ps -a
+ 1001  ll
+ 1002  vi multinode
+ 1003  cat multinode >> /home/cpmadm/multinode.txt
+ 1004  cd /home/cpmadm
+ 1005  ll
+ 1006  rm -f multinode.txt
+ 1007  ll
+ 1008  pwd
+ 1009  cd /etc/kolla/
+ 1010  ll
+ 1011  vi globals.yml 
+ 1012  cd /usr/share/kolla-ansible/ansible/roles/
+ 1013  ll
+ 1014  ll |-wc
+ 1015  ll |grep -wc
+ 1016  ll -wc
+ 1017  ls -al |wc
+ 1018  ll |wc
+ 1019  ll |wc -l
+ 1020  ll |more
+ 1021  cd neutron/
+ 1022  ll
+ 1023  ll defaults/
+ 1024  ll handlers/
+ 1025  cd handlers/
+ 1026  ll
+ 1027  cd ..
+ 1028  ll
+ 1029  ll meta
+ 1030  ll tasks
+ 1031  ll templates/
+ 1032  ll
+ 1033  vi defaults/main.yml 
+ 1034  cd /
+ 1035  ll
+ 1036  df -h
+ 1037  ifconfig
+ 1038  ethtool ens1f0
+ 1039  ifconfig
+ 1040  ethtool ens1f1
+ 1041  ifconfig
+ 1042  ethtool ens2f0
+ 1043  ifconfig
+ 1044  ethtool ens2f1
+ 1045  vi /etc/sysconfig/network-scripts/ifcfg-ens2f1
+ 1046  df -h
+ 1047  vi /etc/fstab
+ 1048  blkid
+ 1049  history
+ 1050  history |more
+ 1051  history
+ 1052  history >> /home/cpmadm/tinker_history.txt

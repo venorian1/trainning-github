@@ -1,0 +1,59 @@
+[root@tinkerstrg07gm ~]# history |grep openstack
+  271  openstack image create --disk-format iso --container-format bare --file SW_DVD9_Win_Svr_STD_Core_and_DataCtr_Core_2016_64Bit_Korean_-2_MLF_X21-22833.ISO win2016-iso
+  533  openstack project create --domain ebaykorea api-gateway-poc-1
+  534  openstack project create --domain ebaykorea api-gateway-poc-2
+  535  openstack role add --project api-gateway-poc-1 --user fusionadmin _member_ --user-domain ebaykorea
+  536  openstack role add --project api-gateway-poc-1 --user fusiongitread _member_ --user-domain ebaykorea
+  537  openstack role add --project api-gateway-poc-2 --user fusionadmin _member_ --user-domain ebaykorea
+  538  openstack role add --project api-gateway-poc-2 --user fusiongitread _member_ --user-domain ebaykorea
+  539  openstack role add --project api-gateway-poc-1 --user jihychoi admin --user-domain ebaykorea
+  540  openstack role add --project api-gateway-poc-2 --user jihychoi admin --user-domain ebaykorea
+  541  openstackA?quotaA?setA?--instance -1A?999c1fb66d9448eeb8154af42c9fb321
+  542  openstack quotaA?setA?--instance -1A?999c1fb66d9448eeb8154af42c9fb321
+  543  openstack quota --help
+  544  openstack quota set --instance -1 999c1fb66d9448eeb8154af42c9fb321
+  545  openstack quota set --instance -1 07aa37dd77e741c6810200c9b237ba98
+  546  openstack quota set --cores -1 999c1fb66d9448eeb8154af42c9fb321
+  547  openstack quota set --cores -1 07aa37dd77e741c6810200c9b237ba98
+  548  openstack quota set --ram -1 999c1fb66d9448eeb8154af42c9fb321
+  549  openstack quota set --ram -1 07aa37dd77e741c6810200c9b237ba98
+  550  openstack quota set --volumes -1 999c1fb66d9448eeb8154af42c9fb321
+  551  openstack quota set --volumes -1 07aa37dd77e741c6810200c9b237ba98
+  552  openstack quota set --gigabytes -1 999c1fb66d9448eeb8154af42c9fb321
+  553  openstack quota set --gigabytes -1 07aa37dd77e741c6810200c9b237ba98
+  555  openstack role add --project api-gateway-poc-1 --user illee _member_ --user-domain ebaykorea
+  556  openstack role add --project api-gateway-poc-2 --user illee _member_ --user-domain ebaykorea
+  557  openstack role add --project api-gateway-poc-1 --user jyoo _member_ --user-domain ebaykorea
+  558  openstack role add --project api-gateway-poc-2 --user jyoo _member_ --user-domain ebaykorea
+  559  openstack role add --project api-gateway-poc-1 --user sklee _member_ --user-domain ebaykorea
+  560  openstack role add --project api-gateway-poc-2 --user sklee _member_ --user-domain ebaykorea
+  578  cd packer-openstack/
+  851  openstack project create --domain ebaykorea dp-hadoop
+  852  openstack role add --project dp-hadoop --user jihychoi _member_ --user-domain ebaykorea
+  853  openstack role add --project dp-hadoop --user jihychoi admin --user-domain ebaykorea
+  854  openstack role add --project dp-hadoop --user golee jihychoi --user-domain ebaykorea
+  855  openstack role add --project dp-hadoop --user golee --user-domain ebaykorea
+  856  openstack role add --project dp-hadoop --user golee _member_ --user-domain ebaykorea
+  857  openstack role add --project dp-hadoop --user sijoo _member_ --user-domain ebaykorea
+  858  openstack role add --project dp-hadoop --user jinikwon _member_ --user-domain ebaykorea
+  859  openstack role add --project dp-hadoop --user pyson _member_ --user-domain ebaykorea
+  911  pip list | grep python-openstackclient
+  914  history |grep openstack
+  916  openstack role add --project jihychoi --user jihychoi _member_ --user-domain ebaykorea
+  917  openstack role add --project admin --user sklee admin --user-domain ebaykorea
+  932  openstack image save
+  933  openstack image save -h
+  935  openstack image list
+  936  oopenstack image list
+  937  openstack image list
+  943  openstack image save --help
+  944  openstack image save --file windows10_image 33be4df1-e86d-4a06-9818-24147b7b6fec
+  979  openstack image create --disk-format iso --container-format bare --file Windows2012_R2.ISO Windows2012-ISO
+  981  openstack domain list
+  982  history |grep openstack
+  985  openstack role list
+  986  openstack user list
+  987  history |grep openstack
+  999  openstack image list
+ 1000  openstack image save --file=windows10.qcow2 33be4df1-e86d-4a06-9818-24147b7b6fec
+ 1002  history |grep openstack

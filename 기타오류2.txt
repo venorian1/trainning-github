@@ -1,0 +1,62 @@
+/usr/share/kolla-ansible/ansible/roles/baremetal/tasks/bootstrap-servers.yml
+
+/usr/share/kolla-ansible/ansible/roles/baremetal/tasks/pre-install.yml
+
+/usr/share/kolla-ansible/ansible/kolla-host.yml
+
+
+
+
+
+
+
+
+
+/usr/share/kolla-ansible/ansible/site.yml
+
+l
+
+docker exec -i mariadb bash << EOF
+
+cat /var/lib/mysql/grastate.dat
+
+EOF
+
+
+failed: [192.168.41.31] (item={'value': {u'environment': {u'ANSIBLE_LIBRARY': u'/usr/share/ansible', 
+u'ANSIBLE_NOCOLOR': u'1'}, u'image': u'ecr.ebaykorea.com/kolla/centos-binary-kolla-toolbox:ocata', 
+u'privileged': True, u'volumes': [u'/etc/kolla//kolla-toolbox/:/var/lib/kolla/config_files/:ro', u'/etc/localtime:/etc/localtime:ro', 
+u'/dev/:/dev/', u'/run/:/run/:shared', u'kolla_logs:/var/log/kolla/'], u'container_name': u'kolla_toolbox'}, 'key': u'kolla-toolbox'}) => 
+{"changed": true, "item": {"key": "kolla-toolbox", "value": {"container_name": "kolla_toolbox", "environment": {"ANSIBLE_LIBRARY": "/usr/share/ansible", "ANSIBLE_NOCOLOR": "1"},
+ "image": "ecr.ebaykorea.com/kolla/centos-binary-kolla-toolbox:ocata", "privileged": true, "volumes": ["/etc/kolla//kolla-toolbox/:/var/lib/kolla/config_files/:ro",
+ "/etc/localtime:/etc/localtime:ro", "/dev/:/dev/", "/run/:/run/:shared", "kolla_logs:/var/log/kolla/"]}}, "msg": "'Traceback (most recent call last):\\n  
+File \"/tmp/ansible_hx6R3a/ansible_module_kolla_docker.py\", line 799, in main\\n    result = bool(getattr(dw, module.params.get(\\'action\\'))())\\n  
+File \"/tmp/ansible_hx6R3a/ansible_module_kolla_docker.py\", line 448, in pull_image\\n    email=self.params.get(\\'auth_email\\')\\n  
+File \"/usr/lib/python2.7/site-packages/docker/api/daemon.py\", line 152, in login\\n    return self._result(response, json=True)\\n  
+File \"/usr/lib/python2.7/site-packages/docker/api/client.py\", line 262, in _result\\n    self._raise_for_status(response)\\n  File \"/usr/lib/python2.7/site-packages/docker/api/client.py\", 
+line 258, in _raise_for_status\\n    raise create_api_error_from_http_exception(e)\\n  File \"/usr/lib/python2.7/site-packages/docker/errors.py\", 
+line 31, in create_api_error_from_http_exception\\n    raise cls(e, response=response, explanation=explanation)\\nAPIError: 401 Client Error: Unauthorized (\"Get https://ecr.ebaykorea.com/v2/: unauthorized: authentication required\")\\n'"}
+
+
+failed: [192.168.41.31] (item={'value': {u'environment': {u'DUMMY_ENVIRONMENT': u'kolla_useless_env'}, u'image':
+ u'ecr.ebaykorea.com/kolla/centos-binary-cron:ocata', u'volumes': [u'/etc/kolla//cron/:/var/lib/kolla/config_files/:ro', 
+u'/etc/localtime:/etc/localtime:ro', u'kolla_logs:/var/log/kolla/'], u'container_name': u'cron'}, 'key': u'cron'}) => {"changed": true, 
+"item": {"key": "cron", "value": {"container_name": "cron", "environment": {"DUMMY_ENVIRONMENT": "kolla_useless_env"}, "image": "ecr.ebaykorea.com/kolla/centos-binary-cron:ocata",
+ "volumes": ["/etc/kolla//cron/:/var/lib/kolla/config_files/:ro", "/etc/localtime:/etc/localtime:ro", "kolla_logs:/var/log/kolla/"]}}, "msg": "'Traceback (most recent call last):\\n  File \"/tmp/ansible_T4uz1u/ansible_module_kolla_docker.py\", line 799, in main\\n    result = bool(getattr(dw, module.params.get(\\'action\\'))())\\n  File \"/tmp/ansible_T4uz1u/ansible_module_kolla_docker.py\", line 448, in pull_image\\n    email=self.params.get(\\'auth_email\\')\\n  File \"/usr/lib/python2.7/site-packages/docker/api/daemon.py\", line 152, in login\\n    return self._result(response, json=True)\\n  File \"/usr/lib/python2.7/site-packages/docker/api/client.py\", line 262, in _result\\n    self._raise_for_status(response)\\n  File \"/usr/lib/python2.7/site-packages/docker/api/client.py\", line 258, in _raise_for_status\\n    raise create_api_error_from_http_exception(e)\\n  File \"/usr/lib/python2.7/site-packages/docker/errors.py\", line 31, in create_api_error_from_http_exception\\n    raise cls(e, response=response, explanation=explanation)\\nAPIError: 401 Client Error: Unauthorized (\"Get https://ecr.ebaykorea.com/v2/: unauthorized: authentication required\")\\n'"}
+
+
+
+TASK [mariadb : Running MariaDB bootstrap container] ******************************************************************************************************************************************************************
+fatal: [192.168.41.31]: FAILED! => {"changed": true, "msg": "Container exited with non-zero return code"}
+
+
+
+
+fatal: [192.168.41.33]: FAILED! => {"attempts": 10, "changed": false, "module_stderr": "Shared connection to 192.168.41.33 closed.\r\n", 
+"module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_fQv1FU/ansible_module_wait_for.py\", line 623, in <module>\r\n    
+main()\r\n  File \"/tmp/ansible_fQv1FU/ansible_module_wait_for.py\", line 552, in main\r\n    
+response = s.recv(1024)\r\nsocket.error: [Errno 104] Connection reset by peer\r\n", "msg": "MODULE FAILURE", "rc": 0}
+
+fatal: [192.168.41.32]: FAILED! => {"attempts": 10, "changed": false, "module_stderr": "Shared connection to 192.168.41.32 closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_pwQ7_z/ansible_module_wait_for.py\", line 623, in <module>\r\n    main()\r\n  File \"/tmp/ansible_pwQ7_z/ansible_module_wait_for.py\", line 552, in main\r\n    response = s.recv(1024)\r\nsocket.error: [Errno 104] Connection reset by peer\r\n", "msg": "MODULE FAILURE", "rc": 0}
+fatal: [192.168.41.31]: FAILED! => {"attempts": 10, "changed": false, "module_stderr": "Shared connection to 192.168.41.31 closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_mfMWyF/ansible_module_wait_for.py\", line 623, in <module>\r\n    main()\r\n  File \"/tmp/ansible_mfMWyF/ansible_module_wait_for.py\", line 552, in main\r\n    response = s.recv(1024)\r\nsocket.error: [Errno 104] Connection reset by peer\r\n", "msg": "MODULE FAILURE", "rc": 0}
+

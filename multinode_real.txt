@@ -1,0 +1,65 @@
+vi /etc/hosts
+
+export http_proxy=http://proxy.gmarket.co.kr:8080
+export https_proxy=http://proxy.gmarket.co.kr:8080
+
+yum install python-devel libffi-devel gcc openssl-devel -y
+
+3. pip 패키지매니저 설치 및 최신버전 업뎃
+설치안함 yum install -y epel-release   -> epel-release.noarch 0:7-11
+curl -k -O https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+          yum install -y python-pip    -> python2-pip.noarch 0:8.1.2-7.el7
+pip install -U pip           -> pip-19.0.3
+
+yum -y install yum-utils
+
+yum -y install ansible-2.4.2.0
+
+pip install -U ansible
+
+
+
+*아래방식으로 이전버전 설치진행
+- yum repolist  <--- /etc/yum.repos.d/ 위치 확인
+- sudo rm docker-ce.repo <--- 기존거 삭제
+- sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo <--- repository 추가
+- sudo yum-config-manager --enable docker-ce-edge  <--- 해당 repo 활성화
+- yum --showduplicates list docker-* | expand  <----설치가능버전 확인
+- yum list docker-ce --showduplicates | sort -r  <----설치가능버전 확인
+- sudo yum -y install docker-ce-17.11.0.ce-1.el7.centos  <--- 설치
+- 설치 후 systemctl daemon-reload, systemctl start docker 해줬음
+systemctl daemon-reload
+systemctl start docker
+docker ps
+
+************오류오류**********************************************************************************
+Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-install-Hs2vLA/ansible/
+
+
+
+7. docker.service 파일설정
+# Create the drop-in unit directory for docker.service
+-mkdir -p /etc/systemd/system/docker.service.d
+
+8. Create the drop-in unit file
+tee /etc/systemd/system/docker.service.d/kolla.conf <<-'EOF'
+[Service]
+MountFlags=shared
+EOF
+
+yum install python-docker-py -y
+
+# cd /usr/lib/python2.7/site-packages 여기에서
+mv requests requests_old
+mv requests-2.6.0-py2.7.egg-info requests-2.6.0-py2.7.egg-info-old
+
+pip install -U docker
+
+
+vi /etc/systemd/system/docker.service.d/kolla.conf
+Environment="HTTP_PROXY=http://172.30.212.32:8080" "HTTPS_PROXY=http://172.30.212.32:8080" "http_proxy=http://172.30.212.32:8080" "https_proxy=http://172.30.212.32:8080" "NO_PROXY=localhost,127.0.0.1"
+
+
+******배포서버(sel-vdistrg-03) 설정
+pip install "kolla-ansible==5.0.0"

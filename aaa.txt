@@ -1,0 +1,45 @@
+ 1183  cd 678ad20e3e3dd8b165ca730dadd7c0dc711391b3ae574d391c42cc518aba5c9b/
+  1192  docker volume ls
+ 1193  cd ceph_mon_config/
+ 1198  docker ps -a |more
+ 1199  docker inspect 678 |more
+ 1201  docker logs 678
+ 1202  cat ceph.monmap
+ 1204  mv ceph.monmap ceph.monmap1
+ 1205  docker ps -a |grep boot
+ 1206  docker start bootstrap_ceph_mon
+ 1207  docker logs 678
+ 1209  cat ceph.conf
+ 1210  docker logs 678
+ 1211  dmesg |tail
+ 1212  cd /var/log
+ 1214  tail messages
+ 1215  vi messages
+ 1216  sestatus
+ 1217  cd /var/lib/docker/containers/678ad20e3e3dd8b165ca730dadd7c0dc711391b3ae574d391c42cc518aba5c9b/
+ 1219  >678ad20e3e3dd8b165ca730dadd7c0dc711391b3ae574d391c42cc518aba5c9b-json.log
+ 1220  history |grep boot
+ 1221  docker start bootstrap_ceph_mon
+ 1223  more 678ad20e3e3dd8b165ca730dadd7c0dc711391b3ae574d391c42cc518aba5c9b-json.log
+ 1225  docker inspect 678
+ 1226  cd "/var/lib/docker/overlay/0dbc4e23f2d33b79a71c21f46b390797bf9fc0396f5ea5b5bfd0b3d2fee1c862/root"
+ 1228  docker inspect 678 |more
+ 1229  find ./ -name kolla_start
+ 1230  cd usr/local/bin
+ 1232  vi kolla_start
+ 1234  more kolla_extend_start
+ 1235  docker logs 678
+ 1236  vi kolla_extend_start
+ 1237  history |grep boot
+ 1238  docker start bootstrap_ceph_mon
+ 1239  docker logs 678
+ 1242  vi kolla_extend_start
+ 1243  docker start bootstrap_ceph_mon
+ 1246  vi kolla_extend_start
+ 1247  docker start bootstrap_ceph_mon
+
+INFO:__main__:Setting permission for /etc/openstack-dashboard/local_settings
+ERROR:__main__:MissingRequiredSource: /var/lib/kolla/config_files/STAR_ebaykorea_com.pem file is not found
+
+
+docker exec ceph_mon ceph status
